@@ -15,7 +15,7 @@ export default function Post({post}) {
                 <p>{contenido}</p>
                 <Link href={`/blog/${url}`} legacyBehavior>
                     <a>
-                        Leer Post, ahh prrro esta es la prueba
+                        Leer Post
                     </a>
                 </Link>
             </div>
