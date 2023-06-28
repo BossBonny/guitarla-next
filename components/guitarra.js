@@ -8,12 +8,10 @@ export default function Guitarra({guitarra}) {
 
     const urlImage = "http://192.168.1.251:1337"
 
-    const dirImage = imagen.formats.medium.url
-
     return (
 
         <div className={styles.guitarra}>
-            <Image src={`${urlImage}${dirImage}`} width={600} height={400} alt={`Imagen guitarra ${nombre}`}/>
+            <Image src={`${urlImage}${imagen.formats.medium.url}`} width={600} height={400} alt={`Imagen guitarra ${nombre}`}/>
 
             <div className={styles.contenido}>
                 <h3>{nombre}</h3>

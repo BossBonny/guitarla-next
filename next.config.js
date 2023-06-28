@@ -4,7 +4,8 @@ const nextConfig = {
   swcMinify: true,
   images: {
     formats: ['image/avif' , 'image/webp'],
-    domains: ['192.168.1.251']
+    domains: ['192.168.1.251'],
+    unoptimized: true
   }
 }
 

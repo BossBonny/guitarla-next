@@ -2,21 +2,19 @@ import Image from "next/image"
 import styles from "../../styles/guitarras.module.css"
 import Layout from "@/components/layout"
 
+
 export default function Producto({data}) {
 
     const {nombre, descripcion, imagen, precio} = data[0]
 
-    const urlImage = "http://192.168.1.251:1337"
-
-    const dirImage = imagen.formats.medium.url
-
+    const urlImage= "http://192.168.1.251:1337"
 
     return (
         <Layout
             title={`guitarra  ${nombre}`}    
         >
             <div className={styles.guitarra}>
-                <Image src={`${urlImage}${dirImage}`} width={600} height={400} alt={`Imagen guitarra ${nombre}`}/>
+                <Image src={`${urlImage}${imagen.formats.medium.url}`} width={600} height={400} alt={`Imagen guitarra ${nombre}`}/>
 
                 <div className={styles.contenido}>
                     <h3>{nombre}</h3>
@@ -39,8 +37,6 @@ export async function getStaticPaths(){
             url: guitarra.url
         }
     }))
-
-    console.log(paths);
 
     return{
         paths,
