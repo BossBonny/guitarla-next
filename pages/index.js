@@ -55,24 +55,17 @@ export async function getStaticProps() {
 
   const urlCurso = `${process.env.API_URL}/curso`
 
-  console.log("Hey 1º");
-
   const [resGuitarras,resPosts, resCurso] = await Promise.all([
     fetch(urlGuitarras),
     fetch(urlPosts),
     fetch(urlCurso)
   ])
 
-  console.log("Hey 2º");
-
   const [guitarras, posts, curso] = await Promise.all([
     resGuitarras.json(),
     resPosts.json(),
     resCurso.json()
   ])
-
-  console.log("Hey 3º");
-  
 
   return({
     props: {

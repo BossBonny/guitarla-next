@@ -34,6 +34,14 @@ export default function Header() {
                             Tienda
                         </a>
                     </Link>
+
+                    <Link href={"/carrito"}  legacyBehavior>
+                        <a>
+                            <Image
+                                width={30} height={30} src="/img/carrito.png" alt="Imagen Carrito"
+                            />
+                        </a>
+                    </Link>
                 </nav>
             </div>
         </header>

@@ -1,13 +1,41 @@
+import { useState } from "react"
 import Image from "next/image"
 import styles from "../../styles/guitarras.module.css"
 import Layout from "@/components/layout"
 
 
-export default function Producto({data}) {
+export default function Producto({data, agregarCarrito, }) {
+
+    const [cantidad, setCantidad] = useState(0)
 
     const {nombre, descripcion, imagen, precio} = data[0]
 
     const urlImage= "http://192.168.1.251:1337"
+
+
+    const handleSubmit = e => {
+        e.preventDefault()
+
+        if(cantidad < 1) {
+            alert('Cantidad no válida')
+            return
+        }
+
+        //Construir un objeto
+
+        const guitarraSeleccionada = {
+            id: data[0],
+            imagen: imagen.url,
+            nombre,
+            precio,
+            cantidad
+        }
+
+        
+
+        // Pasando la Informacion
+        agregarCarrito(guitarraSeleccionada)
+    }
 
     return (
         <Layout
@@ -20,6 +48,29 @@ export default function Producto({data}) {
                     <h3>{nombre}</h3>
                     <p className={styles.descripcion}>{descripcion}</p>
                     <p className={styles.precio}>{precio}</p>
+
+                    <form 
+                        onSubmit={handleSubmit}
+                        className={styles.formulario}
+                    >
+                        <label htmlFor="cantidad">Cantidad</label>
+
+                        <select 
+                            onChange={ e => setCantidad(+e.target.value)}
+                            id="cantidad">
+                            <option value="0">--Seleccione--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+
+                        <input
+                            type="submit"
+                            value="Agregar al carrito"
+                        />
+                    </form>
                 </div>
             </div>
         </Layout>
